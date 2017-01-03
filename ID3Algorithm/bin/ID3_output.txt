@@ -1,0 +1,29 @@
+
+
+Output : 
+Pre-Pruned Accuracy
+---------------
+Number of training Instances = 800
+Number of training attributes = 7
+Total number of nodes in the tree = 117
+Number of leaf nodes in the tree = 59
+Accuracy of the model on the training dataset = 0.89375
+
+Number of testing Instances = 203
+Number of testing attributes = 7
+Accuracy of the model on the test dataset = 0.8522167487684729
+0.89375
+
+
+Output : 
+Post-Pruned Accuracy
+---------------
+Number of training Instances = 800
+Number of training attributes = 7
+Total number of nodes in the tree = 117
+Number of leaf nodes in the tree = 58
+Accuracy of the model on the training dataset = 0.89375
+
+Number of testing Instances = 203
+Number of testing attributes = 7
+Accuracy of the model on the test dataset = 0.8719211822660099

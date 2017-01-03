@@ -1,0 +1,6 @@
+1 -> Step 2 - Add Some observed table into the doc from the Paper
+2 -> Include your log file    DONE
+3 -> Step 4 -> Part D -> Comnplete the Report by filling accuracies   DONE
+4 -> Delete Folder Part C, i was not able to delete it      DONE
+5 -> Add Sources in the Cover Page. Include the links in the Links.txt file and ask your friends about the sources   DONE
+6 -> Write the ReadMe file  DONE

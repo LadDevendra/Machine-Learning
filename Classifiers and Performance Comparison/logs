@@ -1,0 +1,1544 @@
+
+RANDOM FOREST
+> #Random Forest (1)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=0.1,recursive = FALSE);
+There were 20 warnings (use warnings() to see them)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        1 
+99.25446 98.64065 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7321
+> #########################################################################
+> #Random Forest (2)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=0.3,recursive = FALSE);
+There were 30 warnings (use warnings() to see them)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        4        1 
+99.25550 99.20431 98.58339 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7345
+> #########################################################################
+> #Random Forest (3)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=0.5,recursive = FALSE);
+There were 40 warnings (use warnings() to see them)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        6        3        1 
+99.24628 99.24986 99.08134 98.72212 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7303
+> #########################################################################
+> #Random Forest (4)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=0.7,recursive = FALSE);
+There were 50 or more warnings (use warnings() to see the first 50)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        9        6        4        3        2        1 
+99.21419 99.23553 99.23487 99.21204 99.11655 98.90595 98.63140 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7197
+> #########################################################################
+#Random Forest (5)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=0.9,recursive = FALSE);
+There were 50 or more warnings (use warnings() to see the first 50)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13       12       11        9        8        7        6        5        4        3 
+99.23252 99.23649 99.23691 99.25326 99.27569 99.27300 99.23680 99.20105 99.21825 99.11327 
+       2        1 
+98.95242 98.57190 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7299
+> #########################################################################
+> #Random Forest (6)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=10,scale="log", 
++                  step=1.5,recursive = FALSE);
+There were 50 or more warnings (use warnings() to see the first 50)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        9        6        4        3        2        1 
+99.24260 99.22954 99.23678 99.20989 99.13590 98.98319 98.71580 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 0, 1, 2, 3, 4.
+Multi-class area under the curve: 0.7323
+> #########################################################################
+> #Random (7)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=15,scale="log", 
++                  step=0.3,recursive = FALSE);
+There were 45 warnings (use warnings() to see them)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        4        1 
+99.25264 99.22615 98.62660 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 1, 2, 3, 4, 5.
+Multi-class area under the curve: 0.7393
+> ##################################################################################
+> #Random Forest (8)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=20,scale="log", 
++                  step=0.3,recursive = FALSE);
+There were 50 or more warnings (use warnings() to see the first 50)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        4        1 
+99.24926 99.21295 98.85246 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 1, 2, 3, 4, 5.
+Multi-class area under the curve: 0.7384
+> ##################################################################################
+> #Random Forest (9)
+> result <- rfcv(given_Data[,-14], given_Data$num,cv.fold=25,scale="log", 
++                  step=0.3,recursive = FALSE);
+There were 50 or more warnings (use warnings() to see the first 50)
+> accuracy <- 100 - result$error.cv;
+> print("Accuracy :")
+[1] "Accuracy :"
+> print(accuracy)
+      13        4        1 
+99.24387 99.21295 98.70168 
+> pred1 <- c('a','b');
+> 
+> for(i in 1:nrow(given_Data))
++ {
++   pred1[i] <- result$predicted[[1]][i]
++   
++   if (pred1[i] < 0.5 && pred1[i] >= 0)
++   {  
++     pred1[i] <- 0;
++   }
++   
++   if (pred1[i] < 1.5 && pred1[i] >= 0.5)
++   {  
++     pred1[i] <- 1;
++   }
++   
++   if (pred1[i] < 2.5 && pred1[i] >= 1.5)
++   {  
++     pred1[i] <- 2;
++   }
++   
++   if (pred1[i] < 3.5 && pred1[i] >= 2.5 )
++   {  
++     pred1[i] <- 3;
++   }
++   
++   if (pred1[i] < 4.5 && pred1[i] >= 3.5)
++   {  
++     pred1[i] <- 4;
++   }
++ }
+> 
+> print("Area under roc Curve:")
+[1] "Area under roc Curve:"
+> multiclass.roc(as.numeric(given_Data$num), as.numeric(pred1))
+
+Call:
+multiclass.roc.default(response = as.numeric(given_Data$num),     predictor = as.numeric(pred1))
+
+Data: as.numeric(pred1) with 5 levels of as.numeric(given_Data$num): 1, 2, 3, 4, 5.
+Multi-class area under the curve: 0.7377
+> ##################################################################################
+
+
+LOGISTIC REGRESSION
+
+> #####################################################################################
+> #Logistic regression (1)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 0.1))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 58.03279
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.9268293 
+> ##############################################################################################################
+> #Logistic regression (2)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 0.3))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 57.37705
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.9090909
+#################################################################################################################
+> #Logistic regression (3)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 0.5))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 55.90164
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+       1 
+0.901
+#################################################################################################################
+> #Logistic regression (4)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 0.7))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 58.95638
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.8157895 
+
+#################################################################################################################
+> #Logistic regression (5)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 1))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 58.68852
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.8918919
+#################################################################################################################
+> #Logistic regression (6)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 3, stepsize = 1.5))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 62.13115
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.9756098 
+#################################################################################################################
+> #Logistic regression (7)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 5, stepsize = 1.5))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 56.22951
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.8684211 
+#################################################################################################################
+
+> #Logistic regression (8)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.80*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 10, stepsize = 1.5))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 59.34426
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.7727273 
+
+#################################################################################################################
+> #Logistic regression (9)
+> #Average of 10 samplings.
+> accuracy<-0
+> precision<-0
+> 
+> for(i in 1:10)
++ {
++  
++   instances<-sample(1:nrow(scaled),size = 0.95*nrow(given_Data))
++   
++   trainingDataSet<-given_Data[instances,]
++   testDataSet<-given_Data[-instances,]
++ 
++   #Building the model using training data
++   LRmodel <- vglm(num~., family=multinomial, data=trainingDataSet, control = vglm.control( maxit = 10, stepsize = 1.5))
++   LRModel.prob <- predict(LRmodel, testDataSet[,1:13], type="response")
++   LRModel.pred <- apply(LRModel.prob, 1, which.max)
++ 
++   LRModel.pred[which(LRModel.pred=="1")] <- levels(as.factor(testDataSet$num))[1]
++   LRModel.pred[which(LRModel.pred=="2")] <- levels(as.factor(testDataSet$num))[2]
++   LRModel.pred[which(LRModel.pred=="3")] <- levels(as.factor(testDataSet$num))[3]
++   LRModel.pred[which(LRModel.pred=="4")] <- levels(as.factor(testDataSet$num))[4]
++   LRModel.pred[which(LRModel.pred=="5")] <- levels(as.factor(testDataSet$num))[5]
++ 
++   confusion<-table(LRModel.pred, testDataSet$num)
++   acc<-sum(diag(confusion))/sum(confusion)
++   acc<-acc*100
++   accuracy<-accuracy+acc
++ 
++ }
+> 
+> accuracy<-accuracy/10
+> print(accuracy)
+[1] 68.5271
+> precision<-sum(diag(confusion))/rowSums(confusion)
+> precision[1]
+        1 
+0.7777778 
+
+#################################################################################################################
+#KNN
+> KNNcall<-function(given_data)[1]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 5, tuneGrid = data.frame(k = 2))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.7895830
+[1] 0.8914728
+> KNNcall<-function(given_data)[2]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 5, tuneGrid = data.frame(k = 3))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.7394827
+[1] 0.8795830
+> KNNcall<-function(given_data)[3]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 5, tuneGrid = data.frame(k = 5))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.7161734
+[1] 0.8547638
+> KNNcall<-function(given_data)[4]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 5, tuneGrid = data.frame(k = 7))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.71
+[1] 0.85
+> KNNcall<-function(given_data)[5]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 3, tuneGrid = data.frame(k = 7))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.6731837
+[1] 0.8038573
+> KNNcall<-function(given_data)[6]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 3, tuneGrid = data.frame(k = 9))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.6532847
+[1] 0.7945763
+> KNNcall<-function(given_data)[7]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 7, tuneGrid = data.frame(k = 9))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.6441934
+[1] 0.7818267
+> KNNcall<-function(given_data)[8]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 20, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 7, tuneGrid = data.frame(k = 9))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.6479274
+[1] 0.7856738
+> KNNcall<-function(given_data)[9]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 25, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 5, tuneGrid = data.frame(k = 4))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.7323827
+[1] 0.8565783
+> KNNcall<-function(given_data)[10]
++ {
++ 
++   ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
++   model <- train(num ~.,  data=given_data, method="knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 4, tuneGrid = data.frame(k = 5))
++   pred = predict(model, given_data, na.action = na.pass)
++       
++   cm <- confusionMatrix(data=pred, given_data$num)
++   #print(cm)
++       
++   knn_accuracy <- round(cm$overall[1], 3)
++   knn_precision <- round(cm$byClass[11], 3)
++       
++   print(mean(knn_accuracy))
++   print(knn_precision)
++ }
+> averageKNN<-KNNcall(given_data)
+[1] 0.7624827
+[1] 0.8725838
+
+###############################################################################################Bagging
+> BaggCall<-function(given_data)[1]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5794827
+[1] 0.7785837
+> BaggCall<-function(given_data)[2]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=15, v=10, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5774827
+[1] 0.7747274
+> BaggCall<-function(given_data)[3]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=20, v=10, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5744782
+[1] 0.7698428
+> BaggCall<-function(given_data)[4]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=25, v=10, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5714587
+[1] 0.7696837
+> BaggCall<-function(given_data)[5]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=100, v=10, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5709571
+[1] 0.771399
+> BaggCall<-function(given_data)[6]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.01))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5942574
+[1] 0.785399
+> BaggCall<-function(given_data)[7]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.05))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.58
+[1] 0.7846098
+> BaggCall<-function(given_data)[8]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.07))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5576568
+[1] 0.7581359
+> BaggCall<-function(given_data)[9]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=25, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5779571
+[1] 0.7846098
+> BaggCall<-function(given_data)[10]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- bagging.cv(num ~.,  data=given_data, mfinal=10, v=50, control=rpart.control(cp=0.03))
++   bag_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   bag_precision <- model$confusion[1] / v1
++     
++   print(bag_accuracy)
++   print(bag_precision)
++ }
+> AverageBagging<-BaggCall(given_data)
+[1] 0.5717591
+[1] 0.7761773
+
+###############################################################################################Boosting
+> BoostCall<-function(given_data)[1]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:31:46 2016 
+i:  2 Fri Nov 11 14:31:50 2016 
+i:  3 Fri Nov 11 14:31:54 2016 
+i:  4 Fri Nov 11 14:31:57 2016 
+i:  5 Fri Nov 11 14:32:01 2016 
+i:  6 Fri Nov 11 14:32:05 2016 
+i:  7 Fri Nov 11 14:32:08 2016 
+i:  8 Fri Nov 11 14:32:12 2016 
+i:  9 Fri Nov 11 14:32:16 2016 
+i:  10 Fri Nov 11 14:32:20 2016 
+[1] 0.5842574
+[1] 0.787
+> BoostCall<-function(given_data)[2]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=15, v=10, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:48:16 2016 
+i:  2 Fri Nov 11 14:48:19 2016 
+i:  3 Fri Nov 11 14:48:23 2016 
+i:  4 Fri Nov 11 14:48:27 2016 
+i:  5 Fri Nov 11 14:48:30 2016 
+i:  6 Fri Nov 11 14:48:34 2016 
+i:  7 Fri Nov 11 14:48:38 2016 
+i:  8 Fri Nov 11 14:48:41 2016 
+i:  9 Fri Nov 11 14:48:45 2016 
+i:  10 Fri Nov 11 14:48:49 2016 
+[1] 0.5812574
+[1] 0.781454
+> BoostCall<-function(given_data)[3]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=20, v=10, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:50:15 2016 
+i:  2 Fri Nov 11 14:50:18 2016 
+i:  3 Fri Nov 11 14:50:22 2016 
+i:  4 Fri Nov 11 14:50:26 2016 
+i:  5 Fri Nov 11 14:50:30 2016 
+i:  6 Fri Nov 11 14:50:34 2016 
+i:  7 Fri Nov 11 14:50:37 2016 
+i:  8 Fri Nov 11 14:50:41 2016 
+i:  9 Fri Nov 11 14:50:45 2016 
+i:  10 Fri Nov 11 14:50:49 2016 
+[1] 0.5792574
+[1] 0.7792476
+> BoostCall<-function(given_data)[4]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=25, v=10, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:51:02 2016 
+i:  2 Fri Nov 11 14:51:06 2016 
+i:  3 Fri Nov 11 14:51:09 2016 
+i:  4 Fri Nov 11 14:51:13 2016 
+i:  5 Fri Nov 11 14:51:17 2016 
+i:  6 Fri Nov 11 14:51:21 2016 
+i:  7 Fri Nov 11 14:51:25 2016 
+i:  8 Fri Nov 11 14:51:28 2016 
+i:  9 Fri Nov 11 14:51:32 2016 
+i:  10 Fri Nov 11 14:51:36 2016 
+[1] 0.5789571
+[1] 0.7767059
+> BoostCall<-function(given_data)[5]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=100, v=10, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:51:49 2016 
+i:  2 Fri Nov 11 14:51:53 2016 
+i:  3 Fri Nov 11 14:51:56 2016 
+i:  4 Fri Nov 11 14:52:00 2016 
+i:  5 Fri Nov 11 14:52:04 2016 
+i:  6 Fri Nov 11 14:52:07 2016 
+i:  7 Fri Nov 11 14:52:11 2016 
+i:  8 Fri Nov 11 14:52:15 2016 
+i:  9 Fri Nov 11 14:52:18 2016 
+i:  10 Fri Nov 11 14:52:22 2016 
+[1] 0.5762574
+[1] 0.775264
+> BoostCall<-function(given_data)[6]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.01))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:57:11 2016 
+i:  2 Fri Nov 11 14:57:15 2016 
+i:  3 Fri Nov 11 14:57:19 2016 
+i:  4 Fri Nov 11 14:57:22 2016 
+i:  5 Fri Nov 11 14:57:26 2016 
+i:  6 Fri Nov 11 14:57:30 2016 
+i:  7 Fri Nov 11 14:57:34 2016 
+i:  8 Fri Nov 11 14:57:38 2016 
+i:  9 Fri Nov 11 14:57:42 2016 
+i:  10 Fri Nov 11 14:57:45 2016
+[1] 0.6052574
+[1] 0.7961275
+> BoostCall<-function(given_data)[7]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.05))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 14:57:55 2016 
+i:  2 Fri Nov 11 14:57:59 2016 
+i:  3 Fri Nov 11 14:58:13 2016 
+i:  4 Fri Nov 11 14:58:17 2016 
+i:  5 Fri Nov 11 14:58:22 2016 
+i:  6 Fri Nov 11 14:58:26 2016 
+i:  7 Fri Nov 11 14:58:31 2016 
+i:  8 Fri Nov 11 14:58:38 2016 
+i:  9 Fri Nov 11 14:58:43 2016 
+i:  10 Fri Nov 11 14:58:47 2016
+[1] 0.5892574
+[1] 0.7893724
+> BoostCall<-function(given_data)[8]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=10, control=rpart.control(cp=0.07))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 15:07:54 2016 
+i:  2 Fri Nov 11 15:07:58 2016 
+i:  3 Fri Nov 11 15:08:14 2016 
+i:  4 Fri Nov 11 15:08:18 2016 
+i:  5 Fri Nov 11 15:08:22 2016 
+i:  6 Fri Nov 11 15:08:27 2016 
+i:  7 Fri Nov 11 15:08:33 2016 
+i:  8 Fri Nov 11 15:08:38 2016 
+i:  9 Fri Nov 11 15:08:42 2016 
+i:  10 Fri Nov 11 15:08:46 2016
+[1] 0.5712574
+[1] 0.7732649
+> BoostCall<-function(given_data)[9]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=25, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 20:39:31 2016 
+i:  2 Fri Nov 11 20:39:34 2016 
+i:  3 Fri Nov 11 20:39:38 2016 
+i:  4 Fri Nov 11 20:39:42 2016 
+i:  5 Fri Nov 11 20:39:45 2016 
+i:  6 Fri Nov 11 20:39:49 2016 
+i:  7 Fri Nov 11 20:39:53 2016 
+i:  8 Fri Nov 11 20:39:56 2016 
+i:  9 Fri Nov 11 20:40:00 2016 
+i:  10 Fri Nov 11 20:40:04 2016 
+i:  11 Fri Nov 11 20:40:08 2016 
+i:  12 Fri Nov 11 20:40:11 2016 
+i:  13 Fri Nov 11 20:40:15 2016 
+i:  14 Fri Nov 11 20:40:19 2016 
+i:  15 Fri Nov 11 20:40:22 2016 
+i:  16 Fri Nov 11 20:40:26 2016 
+i:  17 Fri Nov 11 20:40:30 2016 
+i:  18 Fri Nov 11 20:40:33 2016 
+i:  19 Fri Nov 11 20:40:37 2016 
+i:  20 Fri Nov 11 20:40:41 2016 
+i:  21 Fri Nov 11 20:40:44 2016 
+i:  22 Fri Nov 11 20:40:48 2016 
+i:  23 Fri Nov 11 20:40:52 2016 
+i:  24 Fri Nov 11 20:40:55 2016 
+i:  25 Fri Nov 11 20:40:59 2016
+[1] 0.5792574
+[1] 0.7879264
+> BoostCall<-function(given_data)[10]
++ {
++   n <- names(given_data)
++   f	<- as.formula(paste("num	~",	paste(n[!n	%in%	"num"],	collapse	=	"	+	")))
++   
++   model <- boosting.cv(num ~.,  data=given_data, mfinal=10, v=50, control=rpart.control(cp=0.03))
++   boo_accuracy <- 1 - model$error
++     
++   #calculating precision
++   v1 <- model$confusion[1] + model$confusion[2] + model$confusion[3] + model$confusion[4] + model$confusion[5]
++   boo_precision <- model$confusion[1] / v1
++   
++   print(boo_accuracy)
++   print(boo_precision)
++ }
+> AverageBoosting<-BoostCall(given_data)
+i:  1 Fri Nov 11 20:43:22 2016 
+i:  2 Fri Nov 11 20:43:26 2016 
+i:  3 Fri Nov 11 20:43:29 2016 
+i:  4 Fri Nov 11 20:43:33 2016 
+i:  5 Fri Nov 11 20:43:37 2016 
+i:  6 Fri Nov 11 20:43:40 2016 
+i:  7 Fri Nov 11 20:43:44 2016 
+i:  8 Fri Nov 11 20:43:48 2016 
+i:  9 Fri Nov 11 20:43:52 2016 
+i:  10 Fri Nov 11 20:43:55 2016 
+i:  11 Fri Nov 11 20:43:59 2016 
+i:  12 Fri Nov 11 20:44:03 2016 
+i:  13 Fri Nov 11 20:44:07 2016 
+i:  14 Fri Nov 11 20:44:10 2016 
+i:  15 Fri Nov 11 20:44:14 2016 
+i:  16 Fri Nov 11 20:44:17 2016 
+i:  17 Fri Nov 11 20:44:21 2016 
+i:  18 Fri Nov 11 20:44:25 2016 
+i:  19 Fri Nov 11 20:44:28 2016 
+i:  20 Fri Nov 11 20:44:32 2016 
+i:  21 Fri Nov 11 20:44:36 2016 
+i:  22 Fri Nov 11 20:44:39 2016 
+i:  23 Fri Nov 11 20:44:43 2016 
+i:  24 Fri Nov 11 20:44:46 2016 
+i:  25 Fri Nov 11 20:44:50 2016 
+i:  26 Fri Nov 11 20:44:54 2016 
+i:  27 Fri Nov 11 20:44:57 2016 
+i:  28 Fri Nov 11 20:45:01 2016 
+i:  29 Fri Nov 11 20:45:05 2016 
+i:  30 Fri Nov 11 20:45:08 2016 
+i:  31 Fri Nov 11 20:45:12 2016 
+i:  32 Fri Nov 11 20:45:16 2016 
+i:  33 Fri Nov 11 20:45:19 2016 
+i:  34 Fri Nov 11 20:45:22 2016 
+i:  35 Fri Nov 11 20:45:26 2016 
+i:  36 Fri Nov 11 20:45:30 2016 
+i:  37 Fri Nov 11 20:45:33 2016 
+i:  38 Fri Nov 11 20:45:37 2016 
+i:  39 Fri Nov 11 20:45:41 2016 
+i:  40 Fri Nov 11 20:45:44 2016 
+i:  41 Fri Nov 11 20:45:48 2016 
+i:  42 Fri Nov 11 20:45:52 2016 
+i:  43 Fri Nov 11 20:45:55 2016 
+i:  44 Fri Nov 11 20:45:59 2016 
+i:  45 Fri Nov 11 20:46:03 2016 
+i:  46 Fri Nov 11 20:46:07 2016 
+i:  47 Fri Nov 11 20:46:11 2016 
+i:  48 Fri Nov 11 20:46:15 2016 
+i:  49 Fri Nov 11 20:46:19 2016 
+i:  50 Fri Nov 11 20:46:22 2016
+[1] 0.5762574
+[1] 0.7797375
+
+
+
+
